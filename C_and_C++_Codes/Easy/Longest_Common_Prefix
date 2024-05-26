@@ -1,0 +1,36 @@
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+   int i,j,s,k=0;
+    string res="";
+    if(strs[0]=="")
+    {
+        cout<<"No common"<<endl;
+        return res;
+    }
+
+    s = strs.size();
+    string check=strs[0];
+    L1:
+    for(i=0;i<s;i++)
+    {
+        if(check[k]!=strs[i][k])
+        {
+            break;
+        }
+    }
+    if(i==s)
+    {
+        res += check[k]; //res = res +check[k];
+        k++;
+        if(k != check.size())
+        {
+             goto L1;
+        }
+
+    }
+    //    cout<<res<<endl;
+    return res;
+        
+    }
+};
